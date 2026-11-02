@@ -1,0 +1,36 @@
+html {
+  font-size: 14px;
+}
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+
+
+a {
+    color: inherit;
+}
+.min-height-100vh{
+    min-height:100vh
+}
+a.disabled {
+    pointer-events: none;
+    cursor: default;
+}
+.cursor-pointer{
+    cursor:pointer
+}
+.smaller{
+    font-size: smaller;
+}
+.x-small{
+    font-size: x-small;
+}

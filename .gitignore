@@ -1,0 +1,32 @@
+# Build / publish output (never commit)
+build-out/
+_takebuild-out/
+campuszabuild/
+TakeBuild/bin/
+TakeBuild/obj/
+
+# Secrets & local config
+*firebase-adminsdk*.json
+appointza-a0d00-firebase-adminsdk-*.json
+.env
+.env.*
+**/appsettings.Development.json
+**/appsettings.Local.json
+
+# Frontend
+school-hub/node_modules/
+school-hub/dist/
+
+# .NET
+**/bin/
+**/obj/
+.vs/
+
+# OS / IDE
+Thumbs.db
+.DS_Store
+*.user
+*.suo
+
+# Legacy (removed from tree; ignore if present)
+campusza_server/PlanItNoww/

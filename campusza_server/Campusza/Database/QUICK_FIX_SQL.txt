@@ -1,0 +1,32 @@
+=====================================================
+QUICK FIX: Add images_json column to OrganisationLocation
+=====================================================
+
+Run this SQL command in your PostgreSQL database:
+
+ALTER TABLE organisationlocation ADD COLUMN IF NOT EXISTS images_json JSONB DEFAULT '[]'::jsonb;
+ALTER TABLE organisationlocation ADD COLUMN IF NOT EXISTS attributes_json JSONB DEFAULT '{}'::jsonb;
+
+UPDATE organisationlocation SET images_json = '[]'::jsonb WHERE images_json IS NULL;
+UPDATE organisationlocation SET attributes_json = '{}'::jsonb WHERE attributes_json IS NULL;
+
+=====================================================
+HOW TO RUN:
+=====================================================
+
+1. Open your PostgreSQL client (pgAdmin, psql, etc.)
+2. Connect to your appointza database
+3. Run the SQL commands above
+4. Restart your .NET application
+
+OR use command line:
+psql -h localhost -p 5432 -U postgres -d appointza -c "ALTER TABLE organisationlocation ADD COLUMN IF NOT EXISTS images_json JSONB DEFAULT '[]'::jsonb;"
+
+=====================================================
+VERIFICATION:
+=====================================================
+
+After running, verify with:
+SELECT column_name, data_type FROM information_schema.columns 
+WHERE table_name = 'organisationlocation' 
+AND column_name IN ('images_json', 'attributes_json');

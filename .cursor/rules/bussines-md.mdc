@@ -1,0 +1,36 @@
+---
+description: Keep bussines.md updated whenever screens or business logic change
+alwaysApply: true
+---
+
+# Update bussines.md on every feature change
+
+The file `bussines.md` at the repo root is the **single business record for all screens**. Treat it as required documentation, not optional.
+
+## When to update
+
+Update `bussines.md` in the **same task** when you change any of:
+
+- Routes or new pages (`school-hub/src/App.tsx`, `pages/**`)
+- Validation, workflows, or permissions on a screen
+- Admin/staff/student business rules (timetable, leave, substitutes, attendance, homework, grades, calendar, onboarding)
+- API contracts that affect what users see or can do
+- Database migrations that enable new behavior
+
+## How to update
+
+1. Find the section for the **route** (e.g. `/admin/schedule`, `/staff/schedule`).
+2. Edit **Purpose** if the screen goal changed.
+3. Edit **Rules** — bullet list of constraints, order of steps, what is blocked/allowed, labels shown to users.
+4. Add a row to **Changelog** at the bottom: `| YYYY-MM-DD | Area | One-line summary |`.
+5. Set **Last updated** at the top of `bussines.md` to today.
+
+## Do not
+
+- Remove screen sections without removing the route.
+- Document implementation details (file names, function names) unless needed for business clarity.
+- Skip the changelog for user-visible behavior changes.
+
+## If unsure
+
+Add a short rule under the closest route and note `(verify)` rather than leaving `bussines.md` stale.

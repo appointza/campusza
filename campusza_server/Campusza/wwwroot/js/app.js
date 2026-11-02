@@ -1,0 +1,1 @@
+var Campuszaapp = angular.module('Campuszaapp', []);
